@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Hero from "@components/Hero.astro";
+import OverviewGrid from "@components/OverviewGrid.astro";
+import site from "@data/site.json";
+
+const overviewItems = [
+  {
+    title: "Resume",
+    summary: "Work experience, analytics projects, education, skills, and the original PDF resume.",
+    href: "/resume/",
+    label: "View resume"
+  },
+  {
+    title: "Projects",
+    summary: "A dedicated space for DataFest, SBA modeling, marketplace research, and future portfolio pieces.",
+    href: "/projects/",
+    label: "Explore projects"
+  },
+  {
+    title: "Tutoring",
+    summary: "Structured support for analytics, Python, study systems, and coursework.",
+    href: "/tutoring/",
+    label: "Tutoring details"
+  },
+  {
+    title: "Contact",
+    summary: "Email, resume PDF, LinkedIn, GitHub, and quick ways to get in touch.",
+    href: "/contact/",
+    label: "Contact me"
+  }
+];
+---
+
+<BaseLayout title={`${site.profile.name} | Portfolio`} description={site.profile.intro}>
+  <Header name={site.profile.name} nav={site.nav} portraitSrc={site.profile.portraitSrc} />
+  <main>
+    <Hero profile={site.profile} />
+    <OverviewGrid items={overviewItems} />
+  </main>
+</BaseLayout>

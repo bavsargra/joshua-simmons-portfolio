@@ -1,0 +1,37 @@
+---
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  name: string;
+  nav: NavItem[];
+  portraitSrc?: string;
+}
+
+const { name, nav, portraitSrc } = Astro.props;
+const initials = name
+  .split(" ")
+  .filter(Boolean)
+  .map((part) => part[0])
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label={`${name} home`}>
+    <span class="brand-mark" aria-hidden="true">
+      {portraitSrc ? <img src={portraitSrc} alt="" /> : initials}
+    </span>
+    <span data-edit-key="profile.name">{name}</span>
+  </a>
+  <nav class="nav" aria-label="Primary navigation">
+    {
+      nav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))
+    }
+  </nav>
+</header>

@@ -1,0 +1,38 @@
+---
+interface Project {
+  slug?: string;
+  title: string;
+  category: string;
+  summary: string;
+  tags: string[];
+  link: string;
+  image?: string;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="project-grid">
+  {
+    projects.map((project) => (
+      <article class="project-card">
+        <div class={`asset-slot${project.image ? " has-photo" : ""}`} style={project.image ? `--project-image: url('${project.image}')` : undefined} aria-hidden="true">
+          <span>{project.category}</span>
+        </div>
+        <div class="card-body">
+          <p class="eyebrow">{project.category}</p>
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+          <ul class="tag-list">
+            {project.tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+          <a href={project.link}>View details</a>
+        </div>
+      </article>
+    ))
+  }
+</div>

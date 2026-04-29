@@ -1,0 +1,155 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import site from "@data/site.json";
+
+const editableFields = [
+  {
+    section: "Home",
+    items: [
+      { key: "profile.name", label: "Your name", value: site.profile.name },
+      { key: "home.heroEyebrow", label: "Home eyebrow", value: `${site.profile.location} · ${site.profile.availability}` },
+      { key: "profile.headline", label: "Home headline", value: site.profile.headline },
+      { key: "profile.intro", label: "Home intro", value: site.profile.intro },
+      { key: "home.overviewTitle", label: "Overview title", value: "Choose where to go next." },
+      { key: "home.overviewSummary", label: "Overview summary", value: "Each part of the site now has its own page, so the homepage can stay clean while the details have room to breathe." }
+    ]
+  },
+  {
+    section: "Resume",
+    items: [
+      { key: "resume.pageIntro.title", label: "Resume page title", value: "Analytics, tutoring, and service experience." },
+      { key: "resume.pageIntro.summary", label: "Resume page summary", value: "A focused view of Joshua's work history, education, and applied analytics experience. The full PDF is available below." }
+    ]
+  },
+  {
+    section: "Projects",
+    items: [
+      { key: "projects.pageIntro.title", label: "Projects page title", value: "Applied analytics work with real outcomes." },
+      { key: "projects.pageIntro.summary", label: "Projects page summary", value: "A dedicated home for projects, case work, marketplace research, and future portfolio pieces." }
+    ]
+  },
+  {
+    section: "Tutoring",
+    items: [
+      { key: "tutoring.pageIntro.title", label: "Tutoring page title", value: "Structured support for analytics, Python, and coursework." },
+      { key: "tutoring.pageIntro.summary", label: "Tutoring page summary", value: "A dedicated tutoring page for students who want calm, practical help with assignments, concepts, and study systems." },
+      { key: "tutoring.sectionTitle", label: "Tutoring section title", value: site.tutoring.headline },
+      { key: "tutoring.sectionSummary", label: "Tutoring section summary", value: site.tutoring.summary },
+      { key: "tutoring.testimonial", label: "Tutoring quote", value: site.tutoring.testimonial }
+    ]
+  },
+  {
+    section: "Contact",
+    items: [
+      { key: "contact.pageIntro.title", label: "Contact page title", value: "Reach out for tutoring, analytics work, or opportunities." },
+      { key: "contact.pageIntro.summary", label: "Contact page summary", value: "Use the email link below for tutoring inquiries, collaboration, project conversations, or anything you want to discuss." },
+      { key: "contact.panelTitle", label: "Contact panel title", value: "Let's make the next step easy." },
+      { key: "contact.panelSummary", label: "Contact panel summary", value: "Reach out for tutoring, portfolio questions, collaborations, or opportunities." }
+    ]
+  }
+];
+---
+
+<BaseLayout title={`Edit Text | ${site.profile.name}`} description="Edit portfolio text directly in the browser.">
+  <Header name={site.profile.name} nav={site.nav} portraitSrc={site.profile.portraitSrc} />
+  <main class="edit-page">
+    <section class="page-intro section-shell">
+      <p class="eyebrow">Edit Text</p>
+      <h1>Change your page copy from here.</h1>
+      <p>This editor saves text changes in this browser, so you can update titles and paragraphs without opening VS Code.</p>
+    </section>
+
+    <section class="section-shell editor-shell">
+      <div class="editor-note">
+        <p class="eyebrow">How it works</p>
+        <p>Your changes stay in this browser on this device. Use Save, then refresh any page to see the update.</p>
+      </div>
+
+      <form class="editor-form" id="text-editor-form">
+        {
+          editableFields.map((group) => (
+            <fieldset class="editor-group">
+              <legend>{group.section}</legend>
+              {
+                group.items.map((item) => (
+                  <label class="editor-field">
+                    <span>{item.label}</span>
+                    <textarea name={item.key} rows={item.value.length > 90 ? 4 : 2} data-default-value={item.value}>{item.value}</textarea>
+                  </label>
+                ))
+              }
+            </fieldset>
+          ))
+        }
+
+        <div class="editor-actions">
+          <button class="button primary" type="submit">Save changes</button>
+          <button class="button secondary" type="button" id="reset-text-overrides">Reset all text</button>
+          <a class="button secondary" href="/">Back to site</a>
+        </div>
+        <p class="editor-status" id="editor-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script is:inline define:vars={{ editableFields }}>
+    (() => {
+      const storageKey = "cozyPortfolioTextOverrides";
+      const form = document.getElementById("text-editor-form");
+      const resetButton = document.getElementById("reset-text-overrides");
+      const statusNode = document.getElementById("editor-status");
+      const defaults = Object.fromEntries(
+        editableFields.flatMap((group) => group.items.map((item) => [item.key, item.value]))
+      );
+
+      const loadOverrides = () => {
+        try {
+          const raw = window.localStorage.getItem(storageKey);
+          return raw ? JSON.parse(raw) : {};
+        } catch {
+          return {};
+        }
+      };
+
+      const fillForm = () => {
+        const overrides = loadOverrides();
+        form?.querySelectorAll("textarea").forEach((field) => {
+          const value = overrides[field.name];
+          field.value = typeof value === "string" ? value : defaults[field.name] ?? "";
+        });
+      };
+
+      form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const overrides = {};
+        form.querySelectorAll("textarea").forEach((field) => {
+          const trimmed = field.value.trim();
+          if (trimmed && trimmed !== defaults[field.name]) {
+            overrides[field.name] = trimmed;
+          }
+        });
+
+        window.localStorage.setItem(storageKey, JSON.stringify(overrides));
+        window.__applyCozyPortfolioTextOverrides?.();
+
+        if (statusNode) {
+          statusNode.textContent = "Saved. Refresh any page in the site preview to see the changes.";
+        }
+      });
+
+      resetButton?.addEventListener("click", () => {
+        window.localStorage.removeItem(storageKey);
+        fillForm();
+        window.__applyCozyPortfolioTextOverrides?.();
+
+        if (statusNode) {
+          statusNode.textContent = "Text overrides cleared. The site is back to the default copy.";
+        }
+      });
+
+      fillForm();
+    })();
+  </script>
+</BaseLayout>

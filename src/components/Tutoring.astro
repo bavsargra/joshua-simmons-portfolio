@@ -1,0 +1,40 @@
+---
+interface Subject {
+  name: string;
+  description: string;
+}
+
+interface TutoringContent {
+  headline: string;
+  summary: string;
+  subjects: Subject[];
+  testimonial: string;
+}
+
+interface Props {
+  tutoring: TutoringContent;
+  email: string;
+}
+
+const { tutoring, email } = Astro.props;
+---
+
+<div class="tutoring-layout">
+  <div class="tutoring-copy">
+    <h3 data-edit-key="tutoring.sectionTitle">{tutoring.headline}</h3>
+    <p data-edit-key="tutoring.sectionSummary">{tutoring.summary}</p>
+    <p class="tutoring-email">Email: <a href={`mailto:${email}?subject=Tutoring inquiry`}>{email}</a></p>
+    <a class="button primary" href={`mailto:${email}?subject=Tutoring inquiry`}>Ask about tutoring</a>
+  </div>
+  <div class="subject-list">
+    {
+      tutoring.subjects.map((subject) => (
+        <article>
+          <h4>{subject.name}</h4>
+          <p>{subject.description}</p>
+        </article>
+      ))
+    }
+    <blockquote data-edit-key="tutoring.testimonial">{tutoring.testimonial}</blockquote>
+  </div>
+</div>

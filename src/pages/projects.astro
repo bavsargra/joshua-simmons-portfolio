@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import PageIntro from "@components/PageIntro.astro";
+import ProjectGrid from "@components/ProjectGrid.astro";
+import Contact from "@components/Contact.astro";
+import site from "@data/site.json";
+---
+
+<BaseLayout title={`Projects | ${site.profile.name}`} description="Analytics projects and portfolio work by Joshua Simmons.">
+  <Header name={site.profile.name} nav={site.nav} portraitSrc={site.profile.portraitSrc} />
+  <main class="projects-page">
+    <PageIntro
+      eyebrow="Projects"
+      title="Applied analytics work with real outcomes."
+      summary="A dedicated home for projects, case work, marketplace research, and future portfolio pieces."
+      keyPrefix="projects.pageIntro"
+    />
+    <section class="section-shell">
+      <ProjectGrid projects={site.projects} />
+    </section>
+    <Contact profile={site.profile} links={site.links} />
+  </main>
+</BaseLayout>

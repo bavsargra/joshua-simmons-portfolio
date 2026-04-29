@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import PageIntro from "@components/PageIntro.astro";
+import Timeline from "@components/Timeline.astro";
+import Education from "@components/Education.astro";
+import Contact from "@components/Contact.astro";
+import site from "@data/site.json";
+---
+
+<BaseLayout title={`Resume | ${site.profile.name}`} description="Resume and experience for Joshua Simmons.">
+  <Header name={site.profile.name} nav={site.nav} portraitSrc={site.profile.portraitSrc} />
+  <main class="resume-page">
+    <PageIntro
+      eyebrow="Resume"
+      title="Analytics, tutoring, and service experience."
+      summary="A focused view of Joshua's work history, education, and applied analytics experience. The full PDF is available below."
+      keyPrefix="resume.pageIntro"
+    />
+    <section class="section-shell resume-page-grid">
+      <Timeline items={site.experience} />
+      <aside class="resume-aside">
+        <h2>Resume PDF</h2>
+        <p>Open the original resume file for the complete one-page version, contact details, education, projects, and skills.</p>
+        <a class="button primary" href={site.profile.resumeHref}>Open resume PDF</a>
+      </aside>
+    </section>
+    <Education items={site.education} />
+    <Contact profile={site.profile} links={site.links} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+interface ExperienceItem {
+  role: string;
+  company: string;
+  period: string;
+  summary: string;
+  highlights: string[];
+}
+
+interface Props {
+  items: ExperienceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="timeline">
+  {
+    items.map((item) => (
+      <article class="timeline-item">
+        <div>
+          <p class="period">{item.period}</p>
+          <h3>{item.role}</h3>
+          <p class="company">{item.company}</p>
+        </div>
+        <div>
+          <p>{item.summary}</p>
+          <ul class="pill-list">
+            {item.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+        </div>
+      </article>
+    ))
+  }
+</div>

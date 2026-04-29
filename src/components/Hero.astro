@@ -1,0 +1,48 @@
+---
+interface Profile {
+  name: string;
+  headline: string;
+  location: string;
+  email: string;
+  intro: string;
+  portraitSrc?: string;
+  portraitAlt: string;
+  resumeHref?: string;
+  availability: string;
+}
+
+interface Props {
+  profile: Profile;
+}
+
+const { profile } = Astro.props;
+const emailHref = `mailto:${profile.email}`;
+---
+
+<section class="hero section-shell" id="home">
+  <div class="hero-copy">
+    <p class="eyebrow" data-edit-key="home.heroEyebrow">{profile.location} · {profile.availability}</p>
+    <h1 data-edit-key="profile.name">{profile.name}</h1>
+    <p class="hero-headline" data-edit-key="profile.headline">{profile.headline}</p>
+    <p class="hero-intro" data-edit-key="profile.intro">{profile.intro}</p>
+    <div class="actions">
+      <a class="button primary" href="/tutoring/">Tutoring info</a>
+      <a class="button secondary" href={emailHref}>Email me</a>
+      {profile.resumeHref && <a class="button secondary" href={profile.resumeHref}>View resume</a>}
+    </div>
+  </div>
+  <div class="portrait-panel" aria-label={profile.portraitAlt}>
+    {
+      profile.portraitSrc ? (
+        <figure class="portrait-photo">
+          <img src={profile.portraitSrc} alt={profile.portraitAlt} />
+        </figure>
+      ) : (
+        <div class="portrait-placeholder">
+          <span>Photo</span>
+          <small>Drop a portrait into public/assets later</small>
+        </div>
+      )
+    }
+  </div>
+</section>

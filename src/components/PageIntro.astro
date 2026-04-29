@@ -1,0 +1,16 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  keyPrefix?: string;
+}
+
+const { eyebrow, title, summary, keyPrefix } = Astro.props;
+---
+
+<section class="page-intro section-shell">
+  <p class="eyebrow" data-edit-key={keyPrefix ? `${keyPrefix}.eyebrow` : undefined}>{eyebrow}</p>
+  <h1 data-edit-key={keyPrefix ? `${keyPrefix}.title` : undefined}>{title}</h1>
+  <p data-edit-key={keyPrefix ? `${keyPrefix}.summary` : undefined}>{summary}</p>
+</section>

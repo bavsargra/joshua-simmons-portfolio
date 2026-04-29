@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cozy portfolio favicon">
+  <rect width="64" height="64" rx="14" fill="#3f5f57"/>
+  <circle cx="42" cy="22" r="13" fill="#f2b880"/>
+  <path d="M13 45c8-12 17-18 28-18 4 0 8 1 10 3v21H13z" fill="#f8ead8"/>
+  <path d="M18 44c7-7 14-10 23-10" fill="none" stroke="#a85f4b" stroke-width="4" stroke-linecap="round"/>
+</svg>

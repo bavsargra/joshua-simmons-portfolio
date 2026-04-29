@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import PageIntro from "@components/PageIntro.astro";
+import ContactPanel from "@components/Contact.astro";
+import site from "@data/site.json";
+---
+
+<BaseLayout title={`Contact | ${site.profile.name}`} description="Contact Joshua Simmons for tutoring, analytics work, and portfolio conversations.">
+  <Header name={site.profile.name} nav={site.nav} portraitSrc={site.profile.portraitSrc} />
+  <main class="contact-page">
+    <PageIntro
+      eyebrow="Contact"
+      title="Reach out for tutoring, analytics work, or opportunities."
+      summary="Use the email link below for tutoring inquiries, collaboration, project conversations, or anything you want to discuss."
+      keyPrefix="contact.pageIntro"
+    />
+    <ContactPanel profile={site.profile} links={site.links} />
+  </main>
+</BaseLayout>

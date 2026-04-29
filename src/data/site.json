@@ -1,0 +1,202 @@
+{
+  "profile": {
+    "name": "Joshua Simmons",
+    "headline": "Business Analytics Graduate, Data Analyst, and Tutor",
+    "location": "Elk Grove, CA",
+    "email": "songyututoring@outlook.com",
+    "intro": "I use analytics, teaching, and clear communication to help people make better decisions. My work spans marketplace data research, machine learning projects, tutoring, and business analytics.",
+    "portraitSrc": "/assets/joshua-simmons-portrait.jpg",
+    "portraitAlt": "Joshua Simmons in graduation regalia on the Golden Gate Bridge",
+    "resumeHref": "/assets/joshua-simmons-resume.pdf",
+    "availability": "Open to tutoring inquiries, analytics work, and portfolio conversations"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Resume", "href": "/resume/" },
+    { "label": "Projects", "href": "/projects/" },
+    { "label": "Tutoring", "href": "/tutoring/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "stats": [
+    { "value": "3.6", "label": "Undergrad GPA" },
+    { "value": "92%", "label": "DataFest Model ccuracy" },
+    { "value": "2025", "label": "Judge's Choice Award Winner" }
+  ],
+  "experience": [
+    {
+      "role": "Data Analyst Researcher Intern",
+      "company": "Kolosseum Marketplace",
+      "period": "Dec 2025 - Present",
+      "summary": "Building data resources and analytics foundations for a mobile marketplace, including safe meetup location datasets and product research.",
+      "highlights": ["Prepared CSV/JSON safe meetup datasets", "Researched authentication partners and API feasibility", "Defined event tracking and dashboard metrics"]
+    },
+    {
+      "role": "Instructional Student Assistant - Tutor",
+      "company": "CSU Sacramento",
+      "period": "Jul 2024 - May 2025",
+      "summary": "Tutored students in regression, data mining, and machine learning while supporting assignment and project work in Python, Jupyter Notebooks, and JMP.",
+      "highlights": ["Logistic Regression, KNN, Decision Trees, and Ensembles", "Model evaluation with precision, recall, F1, and confusion matrices", "Data cleaning, missing values, and dummy variables"]
+    },
+    {
+      "role": "Drink Barista",
+      "company": "Yifang Taiwan Fruit Tea",
+      "period": "May 2024 - Jan 2026",
+      "summary": "Delivered customer service in a fast-paced environment while maintaining drink quality, order accuracy, and team coordination during peak volume.",
+      "highlights": ["High-volume customer service", "POS transactions and quality consistency", "Team cleanliness and store operations"]
+    }
+  ],
+  "education": [
+    {
+      "school": "CSU Sacramento",
+      "college": "College of Business",
+      "degree": "Bachelor of Science",
+      "major": "Business Analytics",
+      "gpa": "3.59",
+      "latinHonors": "Cum Laude",
+      "leadershipTitle": "Business Analytics Treasurer",
+      "leadershipOrg": "Business Analytics Club",
+      "honors": ["University Dean's List '24", "University Dean's List '25"]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "datafest-at-sac-state",
+      "title": "DataFest at Sac State",
+      "category": "Award-winning analytics",
+      "summary": "Analyzed Savills commercial lease data with Python and Tableau, then presented office leasing insights to industry judges.",
+      "detailSummary": "Our team analyzed commercial lease data, built predictive workflows, and presented practical office-leasing insights under time pressure. The project earned Judge's Choice recognition at DataFest at Sacramento State.",
+      "tags": ["Judge's Choice", "Python", "Tableau", "Predictive Modeling"],
+      "link": "/projects/datafest-at-sac-state/",
+      "image": "/assets/projects/datafest/datafest-certificates.jpg",
+      "gallery": [
+        {
+          "src": "/assets/projects/datafest/datafest-certificates.jpg",
+          "alt": "Joshua Simmons and teammates holding DataFest recognition certificates.",
+          "caption": "Judge's Choice recognition with the team after the final presentation."
+        },
+        {
+          "src": "/assets/projects/datafest/datafest-team.jpg",
+          "alt": "Joshua Simmons and teammates standing in front of the Power AI presentation screen.",
+          "caption": "Final presentation setup with the team and project deck."
+        },
+        {
+          "src": "/assets/projects/datafest/datafest-laptop.jpg",
+          "alt": "Laptop showing a decision tree model during the DataFest event.",
+          "caption": "Model-building in progress during the competition."
+        },
+        {
+          "src": "/assets/projects/datafest/datafest-cover.jpg",
+          "alt": "Close photo of the Judge's Choice recognition certificate awarded to Joshua Simmons.",
+          "caption": "Judge's Choice certificate from DataFest at Sacramento State."
+        }
+      ]
+    },
+    {
+      "slug": "sba-national-case",
+      "title": "SBA National Case",
+      "category": "Machine learning",
+      "summary": "Built predictive models to assess small business loan repayment risk with profit-aware evaluation, threshold tuning, and model comparison across several classifiers.",
+      "detailSummary": "This project used the SBA loan dataset to compare KNN, decision trees, ensemble methods, logistic regression, and neural networks with a business-focused scoring lens. Instead of stopping at accuracy, the notebook tuned thresholds around precision, loan default risk, and estimated profit impact.",
+      "tags": ["Bagging", "ROC/AUC", "Threshold Tuning", "Profit Optimization"],
+      "link": "/projects/sba-national-case/",
+      "image": "/assets/projects/sba-national/extracted/cell-135-output-01.png",
+      "metrics": [
+        { "value": "$2.37B", "label": "Max net profit" },
+        { "value": "0.8236", "label": "Optimal cutoff" },
+        { "value": "92.89%", "label": "Boosting accuracy" }
+      ],
+      "insights": [
+        "Cleaned and encoded core SBA loan features including term, employees, business status, revolving credit, LowDoc, geography, and disbursement amounts.",
+        "Compared multiple classification families rather than relying on a single model, including KNN, decision trees, boosting, bagging, random forest, logistic regression, and neural networks.",
+        "Tuned decision thresholds using a profit-oriented business rule so the final recommendation reflected lending tradeoffs instead of raw accuracy alone."
+      ],
+      "galleryTitle": "Notebook outputs and model visuals.",
+      "gallerySummary": "A selection of charts and results from the SBA notebook, including feature relationships, distribution shape, ROC behavior, and the final profit-threshold view.",
+      "gallery": [
+        {
+          "src": "/assets/projects/sba-national/extracted/cell-027-output-00.png",
+          "alt": "Correlation heatmap for selected SBA project numeric variables.",
+          "caption": "Correlation heatmap used during exploration to check how disbursement, approval, term, and charge-off related to one another."
+        },
+        {
+          "src": "/assets/projects/sba-national/extracted/cell-028-output-03.png",
+          "alt": "Histogram of DisbursementGross from the SBA notebook.",
+          "caption": "Distribution of loan disbursement amounts, showing a heavy concentration in the lower ranges with a long right tail."
+        },
+        {
+          "src": "/assets/projects/sba-national/extracted/cell-060-output-00.png",
+          "alt": "ROC curve from the SBA notebook with area approximately 0.8824.",
+          "caption": "ROC curve from the tuned classification workflow, showing strong separation with an AUC around 0.8824."
+        },
+        {
+          "src": "/assets/projects/sba-national/extracted/cell-135-output-01.png",
+          "alt": "Net profit versus proportion chart from the SBA notebook with a marked optimal point.",
+          "caption": "Profit scan used to choose the operating cutoff, with the notebook marking the highest estimated net-profit region."
+        }
+      ],
+      "references": [
+        {
+          "title": "\"Should This Loan be Approved or Denied?\": A Large Dataset with Class Assignment Guidelines",
+          "detail": "Min Li, Amy Mickel, and Stanley Taylor. Datasets and Stories. This paper documents the SBA loan dataset and provides teaching context for the case structure used in the project.",
+          "href": "https://www.tandfonline.com/doi/full/10.1080/10691898.2018.1434342"
+        }
+      ]
+    },
+    {
+      "slug": "safe-meetup-dataset",
+      "title": "Safe Meetup Dataset",
+      "category": "Marketplace research",
+      "summary": "Collected and cleaned public location data for safe buyer-seller recommendations, including addresses, coordinates, hours, and categories.",
+      "detailSummary": "At Kolosseum Marketplace, I supported the safe meetup recommendation effort by preparing structured public location data for product use. Because the work sits under NDA, this page stays at the level of the public-facing problem: making in-person buyer-seller exchanges easier to evaluate with cleaner, more usable location information.",
+      "tags": ["Safe Meetup Data", "CSV/JSON", "Marketplace Research", "Product Support"],
+      "link": "/projects/safe-meetup-dataset/",
+      "image": "/assets/projects/kolosseum-og-image.jpg",
+      "insights": [
+        "Researched and organized public meetup-location information that could support safer exchanges inside a peer-to-peer marketplace context.",
+        "Prepared structured fields such as addresses, coordinates, operating availability, and category labels so the dataset was more product-ready and easier to evaluate downstream.",
+        "Kept the project framed around public data preparation and marketplace support work rather than exposing internal decision logic or private operational process."
+      ],
+      "galleryTitle": "Public marketplace context.",
+      "gallerySummary": "A high-level view of the marketplace environment this work supported, without disclosing protected internal workflow details.",
+      "gallery": [
+        {
+          "src": "/assets/projects/kolosseum-hero-poster.jpg",
+          "alt": "Public Kolosseum landing page poster image.",
+          "caption": "Public landing-page poster image used here as visual context for the marketplace product environment behind the internship work."
+        },
+        {
+          "src": "/assets/projects/kolosseum-og-image.jpg",
+          "alt": "Public Kolosseum Marketplace brand image.",
+          "caption": "Public Kolosseum brand image used as supporting context for the safe meetup dataset project entry."
+        },
+        {
+          "src": "/assets/projects/kolosseum-logo.png",
+          "alt": "Kolosseum Marketplace logo.",
+          "caption": "Official public logo from the landing page, included only to identify the marketplace tied to the internship entry on the resume."
+        }
+      ],
+      "references": [
+        {
+          "title": "Kolosseum Marketplace",
+          "detail": "Public product site used here only to provide marketplace context for the internship project summary.",
+          "href": "https://www.kolosseum.com/"
+        }
+      ]
+    }
+  ],
+  "tutoring": {
+    "headline": "I'm Not Your Average Tutor",
+    "summary": "I help students break down assignments, understand theory, clean data, and build confidence with technical coursework and crtical thinking.",
+    "subjects": [
+      { "name": "Business Analytics", "description": "Regression, data mining, machine learning concepts, and project walkthroughs." },
+      { "name": "Python and Jupyter Notebooks", "description": "Data cleaning, missing values, model evaluation, visualizations, and notebook organization." },
+      { "name": "Study Systems", "description": "Consultation, planning, note-taking, assignment breakdowns, accountability, and clarified academic routines." }
+    ],
+    "testimonial": "My tutoring approach is simple. I don't shove buzz words and incredibly techincal jargon/vocabulary at my clients. I like to explain through visuals and elementary phrasing to make it easy for anyone to understand."
+  },
+  "links": [
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/joshua-simmons-a78830332" },
+    { "label": "GitHub", "href": "https://github.com/bavsargra" },
+    { "label": "Resume PDF", "href": "/assets/joshua-simmons-resume.pdf" }
+  ]
+}

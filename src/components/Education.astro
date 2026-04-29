@@ -1,0 +1,69 @@
+---
+interface EducationItem {
+  school: string;
+  college: string;
+  degree: string;
+  major: string;
+  gpa: string;
+  latinHonors?: string;
+  leadershipTitle?: string;
+  leadershipOrg?: string;
+  honors: string[];
+}
+
+interface Props {
+  items: EducationItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section-shell education-section">
+  <div class="section-heading">
+    <p class="eyebrow">Education</p>
+    <h2>Academic background and honors.</h2>
+    <p>A quick view of degree information, academic focus, GPA, and recognition.</p>
+  </div>
+
+  <div class="education-grid">
+    {
+      items.map((item) => (
+        <article class="education-card">
+          <div class="education-copy">
+            <p class="period">{item.degree}</p>
+            <h3>{item.school}</h3>
+            <p class="company">{item.college}</p>
+            <p class="education-major">Major: {item.major}</p>
+          </div>
+          <div class="education-details">
+            <div class="education-metrics">
+              <div class="education-metric">
+                <strong>{item.gpa}</strong>
+                <span>GPA</span>
+              </div>
+              {
+                item.latinHonors && (
+                  <div class="education-metric">
+                    <strong>{item.latinHonors}</strong>
+                    <span>Graduation Honors</span>
+                  </div>
+                )
+              }
+              {
+                item.leadershipTitle && item.leadershipOrg && (
+                  <div class="education-metric education-metric-wide">
+                    <strong>{item.leadershipTitle}</strong>
+                    <span>{item.leadershipOrg}</span>
+                  </div>
+                )
+              }
+            </div>
+            <ul class="pill-list">
+              {item.honors.map((honor) => <li>{honor}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

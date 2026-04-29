@@ -1,0 +1,33 @@
+---
+interface OverviewItem {
+  title: string;
+  summary: string;
+  href: string;
+  label: string;
+}
+
+interface Props {
+  items: OverviewItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section-shell overview-section">
+  <div class="section-heading">
+    <p class="eyebrow" data-edit-key="home.overviewEyebrow">Overview</p>
+    <h2 data-edit-key="home.overviewTitle">Choose where to go next.</h2>
+    <p data-edit-key="home.overviewSummary">Each part of the site now has its own page, so the homepage can stay clean while the details have room to breathe.</p>
+  </div>
+  <div class="overview-grid">
+    {
+      items.map((item) => (
+        <article class="overview-card">
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <a href={item.href}>{item.label}</a>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import "@styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const storageKey = "cozyPortfolioTextOverrides";
+
+        const applyTextOverrides = () => {
+          try {
+            const raw = window.localStorage.getItem(storageKey);
+            const overrides = raw ? JSON.parse(raw) : {};
+
+            document.querySelectorAll("[data-edit-key]").forEach((node) => {
+              const key = node.getAttribute("data-edit-key");
+              if (!key) return;
+              const value = overrides[key];
+              if (typeof value === "string" && value.trim()) {
+                node.textContent = value;
+              }
+            });
+          } catch (error) {
+            console.warn("Unable to apply text overrides.", error);
+          }
+        };
+
+        window.__applyCozyPortfolioTextOverrides = applyTextOverrides;
+        document.addEventListener("DOMContentLoaded", applyTextOverrides);
+        window.addEventListener("storage", applyTextOverrides);
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

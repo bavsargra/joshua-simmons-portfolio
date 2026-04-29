@@ -1358,16 +1358,16 @@ blockquote {
   }
 
   .tutoring-page .page-intro {
-    min-height: 22rem;
-    padding-bottom: 10rem;
+    min-height: 24rem;
+    padding-bottom: 12rem;
   }
 
   .tutoring-page .page-intro::before {
-    right: 0.5rem;
-    top: 8.5rem;
-    width: 23rem;
-    height: 12.5rem;
-    opacity: 0.62;
+    right: 0;
+    top: 12.25rem;
+    width: 21rem;
+    height: 11rem;
+    opacity: 0.54;
   }
 
   .section-shell,

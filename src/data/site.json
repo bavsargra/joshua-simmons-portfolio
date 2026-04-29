@@ -1,10 +1,10 @@
 {
   "profile": {
     "name": "Joshua Simmons",
-    "headline": "B.S Business Analytics, Data Analyst, and Freelance Tutor",
+    "headline": "B.S. Business Analytics, Data Analyst, and Freelance Tutor",
     "location": "Elk Grove, CA",
     "email": "songyututoring@outlook.com",
-    "intro": "Hi! Im Josh, I use analytics, teaching, and clear communication to help people make better decisions. My work spans marketplace data research, machine learning projects, tutoring, and business analytics.",
+    "intro": "Hi! I'm Josh, I use analytics, teaching, and clear communication to help people make better decisions. My work spans marketplace data research, machine learning projects, tutoring, and business analytics.",
     "portraitSrc": "/assets/joshua-simmons-portrait.jpg",
     "portraitAlt": "Joshua Simmons in graduation regalia on the Golden Gate Bridge",
     "resumeHref": "/assets/joshua-simmons-resume.pdf",
@@ -186,13 +186,13 @@
   ],
   "tutoring": {
     "headline": "I'm Not Your Average Tutor",
-    "summary": "I help students break down assignments, understand theory, clean data, and build confidence with technical coursework and crtical thinking.",
+    "summary": "I help students break down assignments, understand theory, clean data, and build confidence with technical coursework and critical thinking.",
     "subjects": [
       { "name": "Business Analytics", "description": "Regression, data mining, machine learning concepts, and project walkthroughs." },
       { "name": "Python and Jupyter Notebooks", "description": "Data cleaning, missing values, model evaluation, visualizations, and notebook organization." },
       { "name": "Study Systems", "description": "Consultation, planning, note-taking, assignment breakdowns, accountability, and clarified academic routines." }
     ],
-    "testimonial": "My tutoring approach is simple. I don't shove buzz words and incredibly techincal jargon/vocabulary at my clients. I like to explain through visuals and elementary phrasing to make it easy for anyone to understand."
+    "testimonial": "My tutoring approach is simple. I don't shove buzz words and incredibly technical jargon/vocabulary at my clients. I like to explain through visuals and elementary phrasing to make it easy for anyone to understand."
   },
   "links": [
     { "label": "LinkedIn", "href": "https://www.linkedin.com/in/joshua-simmons-a78830332" },
